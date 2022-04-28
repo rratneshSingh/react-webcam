@@ -5,21 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #fff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.camera-top, .camera-bottom{
-  height: 100px;
-  background-color: aqua;
+.camera-top{
+  min-height: 80px;
+  background-color: #000;
+}
+.camera-bottom{
+  min-height: 150px;
+  background-color: #000;
 }
 .webcam-btn{
   position: absolute;
   left: 50%;
-  bottom: 10px;
+  bottom: 30px;
   transform: translateX(-50%);
+  border: 0;
+  background-color: transparent;
+  color: #fff;
 }
 .webcam-container{
   position: relative;
@@ -34,4 +43,47 @@ code {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.asset-wrap{
+  width: 56px;
+  height: 56px;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-right: 8px;
+}
+.asset-wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.asset-row{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.icon-circle{
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: #4460FF;
+  position: relative;
+  margin-bottom: 10px;
+}
+.icon-circle::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border:1px solid #4460FF;
+  border-radius: 50%;
 }

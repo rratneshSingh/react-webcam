@@ -41,13 +41,13 @@ export const WebcamCapture = ({ addImageCb, cameraHeight, cameraWidth}) => {
                         e.preventDefault();
                         setImage('')
                     }}
-                        className="webcam-btn">
-                        Retake Image</button> :
+                        className="webcam-btn"><span className='icon-circle'></span><span>Retake Image</span>
+                        </button> :
                     <button onClick={(e) => {
                         e.preventDefault();
                         capture();
                     }}
-                        className="webcam-btn">Capture{cameraHeight},{cameraWidth}</button>
+                        className="webcam-btn"><span className='icon-circle'></span><span>Capture</span></button>
                 }
             </div>
         </div>

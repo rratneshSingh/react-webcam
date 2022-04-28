@@ -25,7 +25,15 @@ function App() {
   return (
     <div className="App">
       <div className='camera-top' style={ { display: 'flex' } }>
-        { clickedImages.map( image => <img style={ { height: '40', width: '40' } } src={image} />)}
+        <div className='container'>
+          <div className='asset-row'> 
+            { clickedImages.map( (image, index) => 
+              <div key={index} className='asset-wrap'>
+                <img src={image} />
+              </div>
+            )}
+          </div>
+        </div>
       </div>
       { isLoaded ? <WebcamCapture addImageCb={ addImage } cameraHeight={cameraHeight} cameraWidth={windowWidth}  /> : '' }
       <div className='camera-bottom'></div>
