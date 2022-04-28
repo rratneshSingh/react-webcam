@@ -6,23 +6,17 @@ const WebcamComponent = () => <Webcam />;
 
 
 
-export const WebcamCapture = ({cameraHeight, cameraWidth}) => {
+export const WebcamCapture = ({ addImageCb, cameraHeight, cameraWidth}) => {
 
     const [image,setImage]=useState('');
     const webcamRef = React.useRef(null);
-
-    const videoConstraints = {
-        width: cameraWidth,
-        height: cameraHeight,
-        facingMode: "user"
-    };
     
     const capture = React.useCallback(
         () => {
         const imageSrc = webcamRef.current.getScreenshot();
-        setImage(imageSrc)
+        setImage(imageSrc);
+        addImageCb( imageSrc );
         });
-
 
     return (
         <div className="webcam-container">
@@ -34,7 +28,11 @@ export const WebcamCapture = ({cameraHeight, cameraWidth}) => {
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
                     width={cameraWidth}
-                    videoConstraints={videoConstraints}
+                    videoConstraints={{
+                        width: cameraWidth,
+                        height: cameraHeight,
+                        facingMode: "user"
+                    }}
                 /> : <img src={image} />}
             </div>
             <div>
