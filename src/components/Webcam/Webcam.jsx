@@ -4,17 +4,18 @@ import Webcam from "react-webcam";
 
 const WebcamComponent = () => <Webcam />;
 
-const videoConstraints = {
-    width: 220,
-    height: 200,
-    facingMode: "user"
-};
 
-export const WebcamCapture = () => {
+
+export const WebcamCapture = ({cameraHeight, cameraWidth}) => {
 
     const [image,setImage]=useState('');
     const webcamRef = React.useRef(null);
 
+    const videoConstraints = {
+        width: cameraWidth,
+        height: cameraHeight,
+        facingMode: "user"
+    };
     
     const capture = React.useCallback(
         () => {
@@ -29,10 +30,10 @@ export const WebcamCapture = () => {
 
                 {image == '' ? <Webcam
                     audio={false}
-                    height={200}
+                    height={cameraHeight}
                     ref={webcamRef}
                     screenshotFormat="image/jpeg"
-                    width={220}
+                    width={cameraWidth}
                     videoConstraints={videoConstraints}
                 /> : <img src={image} />}
             </div>
@@ -48,7 +49,7 @@ export const WebcamCapture = () => {
                         e.preventDefault();
                         capture();
                     }}
-                        className="webcam-btn">Capture</button>
+                        className="webcam-btn">Capture{cameraHeight},{cameraWidth}</button>
                 }
             </div>
         </div>
