@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
       const cameraTopElement = document.querySelector('.camera-top').clientHeight;
-      const cameraBottomElement = document.querySelector('.camera-top').clientHeight;
+      const cameraBottomElement = document.querySelector('.camera-bottom').clientHeight;
       setWindowWidth(window.innerWidth)
       seCameraHeight(window.innerHeight - (cameraTopElement + cameraBottomElement) - 1)
       console.log(window);
